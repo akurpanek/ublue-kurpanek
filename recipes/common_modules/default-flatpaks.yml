@@ -5,26 +5,31 @@ configurations:
   - notify: false  # Send notification after install/uninstall is finished (true/false)
     scope: system
     install: # system flatpaks we want all users to have and not remove
-      - de.bund.ausweisapp.ausweisapp2
-      - org.mozilla.firefox
-      - org.gnome.Loupe
-      - org.gnome.World.PikaBackup
-      - io.typora.Typora
-      # - org.gnome.Loupe.HEIC
-      # - ch.theologeek.Manuskript
+
+      - ch.theologeek.Manuskript # Write your masterpiece
+      - com.github.tchx84.Flatseal # Manage Flatpak permissions
+      - com.jgraph.drawio.desktop # Create and share diagrams
+      - com.mattjakeman.ExtensionManager # Browse, install, and manage GNOME Shell Extensions
+      - de.bund.ausweisapp.ausweisapp2 # Official authentication app for German ID card and residence permit
+      - io.github.flattool.Warehouse # Manage all things Flatpak
+      - io.podman_desktop.PodmanDesktop # Manage Podman and other container engines from a single UI
+      - io.typora.Typora # A minimal Markdown reading & writing app
+      - org.gnome.Loupe # Vrowse through your images and inspect their metadata
+      - org.gnome.World.PikaBackup # Keep your data safe
+      - org.libreoffice.LibreOffice # The LibreOffice productivity suite
+      - org.mozilla.firefox # Fast, Private & Safe Web Browser
+      - com.ranfdev.DistroShelf # Graphical interface for managing Distrobox containers
+
       # - com.anydesk.Anydesk
       # - com.calibre_ebook.calibre
       # - com.discordapp.Discord
-      # - com.github.PintaProject.Pinta
       # - com.github.flxzt.rnote
       # - com.github.jeromerobert.pdfarranger
+      # - com.github.PintaProject.Pinta
       # - com.github.rafostar.Clapper
       # - com.github.rafostar.Clapper.Enhancers
-      # - com.github.tchx84.Flatseal
       # - com.google.Chrome
-      # - com.jgraph.drawio.desktop
       # - com.makemkv.MakeMKV
-      # - com.mattjakeman.ExtensionManager
       # - com.microsoft.Edge
       # - com.nextcloud.desktopclient.nextcloud
       # - com.onepassword.OnePassword
@@ -42,7 +47,6 @@ configurations:
       # - io.github.pwr_solaar.solaar
       # - io.kopia.KopiaUI
       # - io.missioncenter.MissionCenter
-      # - io.podman_desktop.PodmanDesktop
       # - md.obsidian.Obsidian
       # - net.christianbeier.Gromit-MPX
       # - net.code_industry.MasterPDFEditor
@@ -55,9 +59,11 @@ configurations:
       # - org.freecad.FreeCAD
       # - org.gimp.GIMP
       # - org.gimp.GIMP.HEIC
+      # - org.gnome.baobab
       # - org.gnome.Calculator
       # - org.gnome.Calendar
       # - org.gnome.Characters
+      # - org.gnome.clocks
       # - org.gnome.Connections
       # - org.gnome.Contacts
       # - org.gnome.DejaDup
@@ -65,27 +71,24 @@ configurations:
       # - org.gnome.Evolution
       # - org.gnome.FileRoller
       # - org.gnome.Firmware
+      # - org.gnome.font-viewer
       # - org.gnome.Logs
+      # - org.gnome.Loupe.HEIC
       # - org.gnome.Maps
+      # - org.gnome.meld
       # - org.gnome.Music
       # - org.gnome.NautilusPreviewer
       # - org.gnome.NetworkDisplays
       # - org.gnome.Papers
+      # - org.gnome.seahorse.Application
       # - org.gnome.Snapshot
       # - org.gnome.TextEditor
       # - org.gnome.Todo
       # - org.gnome.Weather
-      # - org.gnome.baobab
-      # - org.gnome.clocks
-      # - org.gnome.font-viewer
-      # - org.gnome.meld
-      # - org.gnome.seahorse.Application
       # - org.inkscape.Inkscape
       # - org.kde.digikam
       # - org.keepassxc.KeePassXC
-      # - org.libreoffice.LibreOffice
       # - org.mozilla.Thunderbird
-      # - org.mozilla.firefox
       # - org.onlyoffice.desktopeditors
       # - org.torproject.torbrowser-launcher
       # - org.videolan.VLC
