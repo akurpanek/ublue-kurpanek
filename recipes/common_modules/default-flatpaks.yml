@@ -5,6 +5,92 @@ configurations:
   - notify: false  # Send notification after install/uninstall is finished (true/false)
     scope: system
     install: # system flatpaks we want all users to have and not remove
+      - de.bund.ausweisapp.ausweisapp2
       - org.mozilla.firefox
       - org.gnome.Loupe
+      - org.gnome.World.PikaBackup
+      - io.typora.Typora
+      # - org.gnome.Loupe.HEIC
+      # - ch.theologeek.Manuskript
+      # - com.anydesk.Anydesk
+      # - com.calibre_ebook.calibre
+      # - com.discordapp.Discord
+      # - com.github.PintaProject.Pinta
+      # - com.github.flxzt.rnote
+      # - com.github.jeromerobert.pdfarranger
+      # - com.github.rafostar.Clapper
+      # - com.github.rafostar.Clapper.Enhancers
+      # - com.github.tchx84.Flatseal
+      # - com.google.Chrome
+      # - com.jgraph.drawio.desktop
+      # - com.makemkv.MakeMKV
+      # - com.mattjakeman.ExtensionManager
+      # - com.microsoft.Edge
+      # - com.nextcloud.desktopclient.nextcloud
+      # - com.onepassword.OnePassword
+      # - com.ranfdev.DistroShelf
+      # - com.rustdesk.RustDesk
+      # - com.spotify.Client
+      # - com.valvesoftware.Steam
+      # - de.breitbandmessung.Breitbandmessung
+      # - de.mediathekview.MediathekView
+      # - fr.handbrake.ghb
+      # - io.github.dvlv.boxbuddyrs
+      # - io.github.flattool.Warehouse
+      # - io.github.nozwock.Packet
+      # - io.github.nroduit.Weasis
+      # - io.github.pwr_solaar.solaar
+      # - io.kopia.KopiaUI
+      # - io.missioncenter.MissionCenter
+      # - io.podman_desktop.PodmanDesktop
+      # - md.obsidian.Obsidian
+      # - net.christianbeier.Gromit-MPX
+      # - net.code_industry.MasterPDFEditor
+      # - net.xm1math.Texmaker
+      # - org.blender.Blender
+      # - org.blender.Blender.Codecs
+      # - org.cryptomator.Cryptomator
+      # - org.darktable.Darktable
+      # - org.fedoraproject.MediaWriter
+      # - org.freecad.FreeCAD
+      # - org.gimp.GIMP
+      # - org.gimp.GIMP.HEIC
+      # - org.gnome.Calculator
+      # - org.gnome.Calendar
+      # - org.gnome.Characters
+      # - org.gnome.Connections
+      # - org.gnome.Contacts
+      # - org.gnome.DejaDup
+      # - org.gnome.Epiphany
+      # - org.gnome.Evolution
+      # - org.gnome.FileRoller
+      # - org.gnome.Firmware
+      # - org.gnome.Logs
+      # - org.gnome.Maps
+      # - org.gnome.Music
+      # - org.gnome.NautilusPreviewer
+      # - org.gnome.NetworkDisplays
+      # - org.gnome.Papers
+      # - org.gnome.Snapshot
+      # - org.gnome.TextEditor
+      # - org.gnome.Todo
+      # - org.gnome.Weather
+      # - org.gnome.baobab
+      # - org.gnome.clocks
+      # - org.gnome.font-viewer
+      # - org.gnome.meld
+      # - org.gnome.seahorse.Application
+      # - org.inkscape.Inkscape
+      # - org.kde.digikam
+      # - org.keepassxc.KeePassXC
+      # - org.libreoffice.LibreOffice
+      # - org.mozilla.Thunderbird
+      # - org.mozilla.firefox
+      # - org.onlyoffice.desktopeditors
+      # - org.torproject.torbrowser-launcher
+      # - org.videolan.VLC
+      # - org.wireshark.Wireshark
+
+
+
   - scope: user # Also add Flathub user repo, but no user packages
