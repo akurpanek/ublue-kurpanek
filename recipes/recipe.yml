@@ -12,11 +12,13 @@ image-version: latest # latest is also supported if you want new updates ASAP
 # module configuration, executed in order
 # you can include multiple instances of the same module
 modules:
+  # - from-file: common_modules/files.yml
   - type: files
     files:
       - source: system
         destination: / # copies files/system/* (* means everything inside it) into your image's root folder /
 
+  # - from-file: common_modules/dnf.yml
   - type: dnf
     repos:
       copr:
@@ -32,6 +34,7 @@ modules:
         - firefox
         - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
 
+  # - from-file: common_modules/default-flatpaks.yml
   - type: default-flatpaks
     configurations:
       - notify: true # Send notification after install/uninstall is finished (true/false)
