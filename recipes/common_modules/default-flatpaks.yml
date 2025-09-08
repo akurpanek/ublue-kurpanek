@@ -5,7 +5,6 @@ configurations:
   - notify: false  # Send notification after install/uninstall is finished (true/false)
     scope: system
     install: # system flatpaks we want all users to have and not remove
-
       - ch.theologeek.Manuskript # Write your masterpiece
       - com.github.tchx84.Flatseal # Manage Flatpak permissions
       - com.jgraph.drawio.desktop # Create and share diagrams
@@ -14,21 +13,33 @@ configurations:
       - io.github.flattool.Warehouse # Manage all things Flatpak
       - io.podman_desktop.PodmanDesktop # Manage Podman and other container engines from a single UI
       - io.typora.Typora # A minimal Markdown reading & writing app
+      - net.scribus.Scribus # Open Source Page Layout and Desktop Publishing (DTP)
+      - org.cryptomator.Cryptomator # Encryption for your cloud made easy
+      - org.gimp.GIMP # Create images and edit photographs
+      - org.gimp.GIMP.HEIC
+      - org.gnome.Calculator # Perform arithmetic, scientific or financial calculations
       - org.gnome.Loupe # Vrowse through your images and inspect their metadata
+      - org.gnome.Loupe.HEIC
+      - org.gnome.meld # Compare and merge your files
+      - org.gnome.seahorse.Application # Manage your passwords and encryption keys
       - org.gnome.World.PikaBackup # Keep your data safe
+      - org.inkscape.Inkscape # Vector Graphics Editor
+      - org.keepassxc.KeePassXC # Community-driven port of the Windows application “KeePass Password Safe”
       - org.libreoffice.LibreOffice # The LibreOffice productivity suite
       - org.mozilla.firefox # Fast, Private & Safe Web Browser
+      - org.pulseaudio.pavucontrol # Adjust device and app volumes
       - com.ranfdev.DistroShelf # Graphical interface for managing Distrobox containers
-
+      - org.torproject.torbrowser-launcher # A program to help you download, keep updated, and run the Tor Browser Bundle
+      
       # - com.anydesk.Anydesk
-      # - com.calibre_ebook.calibre
-      # - com.discordapp.Discord
+      ##- com.calibre_ebook.calibre
+      ##- com.discordapp.Discord
       # - com.github.flxzt.rnote
       # - com.github.jeromerobert.pdfarranger
       # - com.github.PintaProject.Pinta
       # - com.github.rafostar.Clapper
       # - com.github.rafostar.Clapper.Enhancers
-      # - com.google.Chrome
+      ## - com.google.Chrome
       # - com.makemkv.MakeMKV
       # - com.microsoft.Edge
       # - com.nextcloud.desktopclient.nextcloud
@@ -51,16 +62,13 @@ configurations:
       # - net.christianbeier.Gromit-MPX
       # - net.code_industry.MasterPDFEditor
       # - net.xm1math.Texmaker
-      # - org.blender.Blender
+      ## - org.blender.Blender
       # - org.blender.Blender.Codecs
-      # - org.cryptomator.Cryptomator
+
       # - org.darktable.Darktable
       # - org.fedoraproject.MediaWriter
       # - org.freecad.FreeCAD
-      # - org.gimp.GIMP
-      # - org.gimp.GIMP.HEIC
       # - org.gnome.baobab
-      # - org.gnome.Calculator
       # - org.gnome.Calendar
       # - org.gnome.Characters
       # - org.gnome.clocks
@@ -73,9 +81,7 @@ configurations:
       # - org.gnome.Firmware
       # - org.gnome.font-viewer
       # - org.gnome.Logs
-      # - org.gnome.Loupe.HEIC
       # - org.gnome.Maps
-      # - org.gnome.meld
       # - org.gnome.Music
       # - org.gnome.NautilusPreviewer
       # - org.gnome.NetworkDisplays
@@ -85,14 +91,31 @@ configurations:
       # - org.gnome.TextEditor
       # - org.gnome.Todo
       # - org.gnome.Weather
-      # - org.inkscape.Inkscape
       # - org.kde.digikam
-      # - org.keepassxc.KeePassXC
       # - org.mozilla.Thunderbird
       # - org.onlyoffice.desktopeditors
       # - org.torproject.torbrowser-launcher
       # - org.videolan.VLC
       # - org.wireshark.Wireshark
+
+      ## https://github.com/stoeps13/ublue-stoeps/blob/main/recipes/common_modules/default-flatpaks.yml
+      # - com.obsproject.Studio
+      # - app.zen_browser.zen
+      # - be.alexandervanhee.gradia
+      # - com.bitwarden.desktop
+      # - com.obsproject.Studio
+      # - com.slack.Slack
+      # - hu.irl.cameractrls
+      # - im.riot.Riot
+      # - io.dbeaver.DBeaverCommunity
+      # - io.github.java_decompiler.jd-gui
+      # - io.github.martchus.syncthingtray
+      # - io.github.ungoogled_software.ungoogled_chromium
+      # - org.apache.directory.studio
+      # - org.gustavoperedo.FontDownloader # Install fonts from online sources
+      # - org.signal.Signal
+      # - org.zaproxy.ZAP
+      # - us.zoom.Zoom
 
 
 
