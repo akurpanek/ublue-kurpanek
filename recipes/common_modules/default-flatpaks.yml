@@ -6,13 +6,17 @@ configurations:
     scope: system
     install: # system flatpaks we want all users to have and not remove
       - ch.theologeek.Manuskript # Write your masterpiece
+      - com.calibre_ebook.calibre
       - com.github.tchx84.Flatseal # Manage Flatpak permissions
       - com.jgraph.drawio.desktop # Create and share diagrams
       - com.mattjakeman.ExtensionManager # Browse, install, and manage GNOME Shell Extensions
       - de.bund.ausweisapp.ausweisapp2 # Official authentication app for German ID card and residence permit
+      - io.github.dvlv.boxbuddyrs
       - io.github.flattool.Warehouse # Manage all things Flatpak
+      - io.github.nozwock.Packet
       - io.podman_desktop.PodmanDesktop # Manage Podman and other container engines from a single UI
       - io.typora.Typora # A minimal Markdown reading & writing app
+      - net.code_industry.MasterPDFEditor
       - net.scribus.Scribus # Open Source Page Layout and Desktop Publishing (DTP)
       - org.cryptomator.Cryptomator # Encryption for your cloud made easy
       - org.gimp.GIMP # Create images and edit photographs
@@ -32,7 +36,6 @@ configurations:
       - org.torproject.torbrowser-launcher # A program to help you download, keep updated, and run the Tor Browser Bundle
       
       # - com.anydesk.Anydesk
-      ##- com.calibre_ebook.calibre
       ##- com.discordapp.Discord
       # - com.github.flxzt.rnote
       # - com.github.jeromerobert.pdfarranger
@@ -51,16 +54,12 @@ configurations:
       # - de.breitbandmessung.Breitbandmessung
       # - de.mediathekview.MediathekView
       # - fr.handbrake.ghb
-      # - io.github.dvlv.boxbuddyrs
-      # - io.github.flattool.Warehouse
-      # - io.github.nozwock.Packet
       # - io.github.nroduit.Weasis
       # - io.github.pwr_solaar.solaar
       # - io.kopia.KopiaUI
       # - io.missioncenter.MissionCenter
       # - md.obsidian.Obsidian
       # - net.christianbeier.Gromit-MPX
-      # - net.code_industry.MasterPDFEditor
       # - net.xm1math.Texmaker
       ## - org.blender.Blender
       # - org.blender.Blender.Codecs
