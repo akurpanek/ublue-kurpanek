@@ -1,17 +1,19 @@
 type: gnome-extensions
 install:
   - AppIndicator and KStatusNotifierItem Support # 615 # appindicator-support
-  - Blur my Shell # 3193 # blur-my-shell
+  - Blur my Shell # 3193 # Blur my Shell
+                         # https://extensions.gnome.org/extension/3193/blur-my-shell/
   - Caffeine
   - Control monitor brightness and volume with ddcutil
-  - Dash to Dock # 307 # Dash-to-Dock
+  - Dash to Dock # 307 # Dash to Dock
+                       # https://extensions.gnome.org/extension/307/dash-to-dock/
   - Dash to Panel
-  - GSConnect
+  # - GSConnect ## Move to dnf-gnome-yml
   - Just Perfection
   - Logo Menu
   - Lock Keys
   - RebootToUEFI
-  - Search Light
+  # - Search Light  ## Move to dnf-gnome-yml
   - Tiling Shell
   # - Tailscale QS
   # - Wiggle
