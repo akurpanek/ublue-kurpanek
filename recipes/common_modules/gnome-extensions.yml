@@ -9,7 +9,8 @@ install:
   # - GSConnect # copy extensions back to dnf
   - Just Perfection
   - Logo Menu
-  - Lock Keys
+  - 36 # Lock Keys 
+       # https://extensions.gnome.org/extension/36/lock-keys/
   - RebootToUEFI
   # - Search Light # copy extensions back to dnf
   - Tiling Shell
