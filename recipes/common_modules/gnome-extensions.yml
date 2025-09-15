@@ -1,8 +1,7 @@
 type: gnome-extensions
 install:
   - AppIndicator and KStatusNotifierItem Support # 615 # appindicator-support
-  - 3193 # Blur my Shell
-         # https://extensions.gnome.org/extension/3193/blur-my-shell/
+  - Blur my Shell # copy extensions back to dnf
   - Caffeine
   - Control monitor brightness and volume with ddcutil
   - Dash to Dock  # https://extensions.gnome.org/extension/307/dash-to-dock/
