@@ -1,18 +1,20 @@
 type: gnome-extensions
 install:
-  - AppIndicator and KStatusNotifierItem Support # 615 # appindicator-support
-  - Blur my Shell # copy extensions back from dnf
-  - Caffeine
+  # - AppIndicator and KStatusNotifierItem Support
+  # - Blur my Shell
+  # - Caffeine
   - Control monitor brightness and volume with ddcutil
-  - Dash to Dock  # https://extensions.gnome.org/extension/307/dash-to-dock/
-  - Dash to Panel
-  - GSConnect # copy extensions back from dnf
-  - Just Perfection
-  - Logo Menu
+  # - Dash to Dock
+  # - Dash to Panel
+  # - GSConnect
+  # - Just Perfection
+  # - Logo Menu
   - 36 # Lock Keys 
        # https://extensions.gnome.org/extension/36/lock-keys/
   - RebootToUEFI
-  - Search Light # copy extensions back from dnf
+  # - Search Light
   - Tiling Shell
   # - Tailscale QS
+  # - 21 # Workspace Indicator
+         # https://extensions.gnome.org/extension/21/workspace-indicator/
 uninstall: []
