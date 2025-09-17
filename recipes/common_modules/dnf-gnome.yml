@@ -12,9 +12,17 @@ install:
     - ghostty
     - glib2-devel
     - gnome-tweaks
-     # - gnome-shell-extension-blur-my-shell
-     # - gnome-shell-extension-gsconnect
-     # - gnome-shell-extension-search-light
+    - gnome-shell-extension-appindicator
+    - gnome-shell-extension-blur-my-shell
+    - gnome-shell-extension-caffeine
+    - gnome-shell-extension-dash-to-dock
+    - gnome-shell-extension-dash-to-panel
+    - gnome-shell-extension-gsconnect
+    - gnome-shell-extension-just-perfection
+    - gnome-shell-extension-logo-menu
+    - gnome-shell-extension-search-light
+    # - gnome-shell-extension-tailscale-gnome-qs
+    - gnome-shell-extension-workspace-indicator
     - gnome-shell-theme-yaru.noarch
     - yaru-gtk2-theme.noarch
     - yaru-gtk3-theme.noarch
