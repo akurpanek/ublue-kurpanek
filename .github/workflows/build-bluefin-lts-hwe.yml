@@ -27,8 +27,6 @@ jobs:
       matrix:
         recipe:
           # !! Add your recipes here
-          - bluefin-dx.yml
-          - bluefin-lts-gdx.yml
           - bluefin-lts-hwe.yml
     steps:
       # the build is fully handled by the reusable github action
