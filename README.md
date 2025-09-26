@@ -1,7 +1,7 @@
 # ublue-kurpanek 
-Bluefin: &nbsp; [![bluebuild build badge](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin.yml/badge.svg)](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin.yml)
-# ublue-kurpanek &nbsp; [![bluebuild build badge](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-lts-gdx.yml/badge.svg)](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-lts-gdx.yml)
-# ublue-kurpanek &nbsp; [![bluebuild build badge](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-lts-hwe.yml/badge.svg)](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-lts-hwe.yml)
+[![bluebuild build badge](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin.yml/badge.svg)](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin.yml)
+[![bluebuild build badge](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-lts-gdx.yml/badge.svg)](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-lts-gdx.yml)
+[![bluebuild build badge](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-lts-hwe.yml/badge.svg)](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-lts-hwe.yml)
 
 See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
 
