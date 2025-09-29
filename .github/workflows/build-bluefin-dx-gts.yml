@@ -1,4 +1,4 @@
-name: build bluefin-dx
+name: build bluefin-dx-gts
 on:
   schedule:
     - cron:
