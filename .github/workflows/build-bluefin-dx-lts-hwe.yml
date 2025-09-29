@@ -1,4 +1,4 @@
-name: build bluefin-lts-hwe
+name: build bluefin-dx-lts-hwe
 on:
   schedule:
     - cron:
