@@ -1,5 +1,5 @@
 # ublue-kurpanek 
-[![bluebuild build badge](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin.yml/badge.svg)](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin.yml)
+[![bluebuild build badge](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-dx.yml/badge.svg)](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-dx.yml)
 [![bluebuild build badge](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-lts-gdx.yml/badge.svg)](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-lts-gdx.yml)
 [![bluebuild build badge](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-lts-hwe.yml/badge.svg)](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-lts-hwe.yml)
 
