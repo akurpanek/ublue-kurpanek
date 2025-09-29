@@ -1,0 +1,39 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+type: dnf
+repos:
+  copr:
+    # - atim/starship
+    
+install:
+  packages:
+    # - guestfs-tools
+    - libvirt-daemon
+    - libvirt-daemon-config-network
+    - libvirt-daemon-driver-interface
+    - libvirt-daemon-driver-network
+    - libvirt-daemon-driver-nwfilter
+    - libvirt-daemon-driver-qemu
+    - libvirt-daemon-driver-secret
+    - libvirt-daemon-driver-storage-core
+    - lm_sensors
+    # - micro
+    # - pass
+    - qemu-kvm
+    - realtime-setup
+    # - starship
+    - tcpdump
+    - wireguard-tools
+    # - wl-clipboard
+
+# group-install:
+#   with-optional: true
+#   packages:
+#     - development-tools
+
+remove:
+  packages:
+    # example: removing firefox (in favor of the flatpak)
+    # "firefox" is the main package, "firefox-langpacks" is a dependency
+    - firefox
+    # - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
