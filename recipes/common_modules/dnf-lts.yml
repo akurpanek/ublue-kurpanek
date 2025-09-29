@@ -1,12 +1,13 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
-type: dnf
+type: rpm-ostree
+
 repos:
   copr:
     # - atim/starship
-    
-install:
-  packages:
+
+packages:
+  install:
     # - guestfs-tools
     - libvirt-daemon
     - libvirt-daemon-config-network
@@ -26,13 +27,7 @@ install:
     - wireguard-tools
     # - wl-clipboard
 
-# group-install:
-#   with-optional: true
-#   packages:
-#     - development-tools
-
-remove:
-  packages:
+  remove:
     # example: removing firefox (in favor of the flatpak)
     # "firefox" is the main package, "firefox-langpacks" is a dependency
     - firefox
