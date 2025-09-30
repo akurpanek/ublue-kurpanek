@@ -7,24 +7,24 @@ type: rpm-ostree
     # - atim/starship
 
 install:
-  # - guestfs-tools
-  - libvirt-daemon
-  - libvirt-daemon-config-network
-  - libvirt-daemon-driver-interface
-  - libvirt-daemon-driver-network
-  - libvirt-daemon-driver-nwfilter
-  - libvirt-daemon-driver-qemu
-  - libvirt-daemon-driver-secret
-  - libvirt-daemon-driver-storage-core
-  - lm_sensors
-  # - micro
-  # - pass
-  - qemu-kvm
-  - realtime-setup
-  # - starship
+  ## - guestfs-tools
+  #- libvirt-daemon
+  #- libvirt-daemon-config-network
+  #- libvirt-daemon-driver-interface
+  #- libvirt-daemon-driver-network
+  #- libvirt-daemon-driver-nwfilter
+  #- libvirt-daemon-driver-qemu
+  #- libvirt-daemon-driver-secret
+  #- libvirt-daemon-driver-storage-core
+  #- lm_sensors
+  ## - micro
+  ## - pass
+  #- qemu-kvm
+  #- realtime-setup
+  ## - starship
   - tcpdump
-  - wireguard-tools
-  # - wl-clipboard
+  #- wireguard-tools
+  ## - wl-clipboard
 
 remove:
   # example: removing firefox (in favor of the flatpak)
