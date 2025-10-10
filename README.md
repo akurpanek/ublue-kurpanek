@@ -1,6 +1,5 @@
 # ublue-kurpanek 
 [![bluebuild build badge](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-dx-gts.yml/badge.svg)](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-dx-gts.yml)
-[![bluebuild build badge](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-dx-lts-hwe.yml/badge.svg)](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-bluefin-dx-lts-hwe.yml)
 
 See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
 
