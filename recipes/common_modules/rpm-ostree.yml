@@ -2,32 +2,37 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
 type: rpm-ostree
 
-# repos:
-  #copr:
-    # - atim/starship
+repos:
+  copr:
+    - atim/starship
 
 install:
-  ## - guestfs-tools
-  #- libvirt-daemon
-  #- libvirt-daemon-config-network
-  #- libvirt-daemon-driver-interface
-  #- libvirt-daemon-driver-network
-  #- libvirt-daemon-driver-nwfilter
-  #- libvirt-daemon-driver-qemu
-  #- libvirt-daemon-driver-secret
-  #- libvirt-daemon-driver-storage-core
-  #- lm_sensors
-  ## - micro
-  ## - pass
-  #- qemu-kvm
-  #- realtime-setup
-  ## - starship
+  - guestfs-tools
+  - libvirt-daemon
+  - libvirt-daemon-config-network
+  - libvirt-daemon-driver-interface
+  - libvirt-daemon-driver-network
+  - libvirt-daemon-driver-nwfilter
+  - libvirt-daemon-driver-qemu
+  - libvirt-daemon-driver-secret
+  - libvirt-daemon-driver-storage-core
+  - lm_sensors
+  - micro
+  - pass
+  - qemu-kvm
+  - realtime-setup
+  - starship
   - tcpdump
-  #- wireguard-tools
-  ## - wl-clipboard
+  - wireguard-tools
+  - wl-clipboard
+
+# group-install:
+#   with-optional: true
+#   packages:
+#     - development-tools
 
 remove:
   # example: removing firefox (in favor of the flatpak)
   # "firefox" is the main package, "firefox-langpacks" is a dependency
   - firefox
-  # - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+  - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
