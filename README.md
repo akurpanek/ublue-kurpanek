@@ -1,4 +1,4 @@
-# BlueBuild Template &nbsp; [![bluebuild build badge](https://github.com/akurpanek/ublue-kurpanek/template/actions/workflows/build-kurpanek-ublue.yml/badge.svg)](https://github.com/akurpanek/ublue-kurpanek/template/actions/workflows/build-kurpanek-ublue.yml)
+# BlueBuild Template &nbsp; [![bluebuild build badge](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-kurpanek-ublue.yml/badge.svg)](https://github.com/akurpanek/ublue-kurpanek/actions/workflows/build-kurpanek-ublue.yml)
 
 See the [BlueBuild docs](https://blue-build.org/how-to/setup/) for quick setup instructions for setting up your own repository based on this template.
 
