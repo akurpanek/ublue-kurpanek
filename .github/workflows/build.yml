@@ -1,4 +1,4 @@
-name: bluebuild
+name: Build UBlue Image
 on:
   schedule:
     - cron:
