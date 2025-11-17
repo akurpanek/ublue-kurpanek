@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   bluebuild:
-    name: Build Custom Image
+    name: Build kurpanek-ublue Image
     runs-on: ubuntu-latest
     permissions:
       contents: read
