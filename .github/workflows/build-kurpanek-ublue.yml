@@ -16,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   bluebuild:
-    name: Build kurpanek-ublue Image
+    name: Build UBlue Kurpanek Image
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -27,7 +27,7 @@ jobs:
       matrix:
         recipe:
           # !! Add your recipes here
-          - ublue-silverblue.yml
+          - ublue-kurpanek-silverblue.yml
     steps:
       # the build is fully handled by the reusable github action
       - name: Build Custom Image
