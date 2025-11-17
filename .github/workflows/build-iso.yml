@@ -1,4 +1,4 @@
-- name: Build ISO
+- name: Build ISO Image
   uses: jasonn3/build-container-installer@main
   id: build
   with:
