@@ -1,4 +1,4 @@
-name: Build UBlue ISO (with signing)
+name: Build UBlue ISO
 
 on:
 #  push:
