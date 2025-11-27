@@ -20,4 +20,69 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ----
+      # ---------------------------------------------------
+      # Install Rust toolchain (correct action)
+      # ---------------------------------------------------
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          toolchain: stable
+
+      # ---------------------------------------------------
+      # Install BlueBuild CLI
+      # ---------------------------------------------------
+      - name: Install BlueBuild CLI
+        run: cargo install blue-build
+
+      # ---------------------------------------------------
+      # Build and push OCI container image
+      # ---------------------------------------------------
+      - name: Build OCI image with BlueBuild
+        run: |
+          bluebuild build recipes/recipe.yml --push \
+            --registry ghcr.io/${{ github.repository_owner }} \
+            --tag ${{ github.sha }}
+
+      # ---------------------------------------------------
+      # Install cosign
+      # ---------------------------------------------------
+      - name: Install cosign
+        uses: sigstore/cosign-installer@v3
+
+      # ---------------------------------------------------
+      # Sign the built container image (key-based signing)
+      # ---------------------------------------------------
+      - name: Sign container image with cosign
+        env:
+          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
+          COSIGN_PASSWORD:    ${{ secrets.COSIGN_PASSWORD }}
+        run: |
+          IMAGE="ghcr.io/${{ github.repository_owner }}/ublue-kurpanek:${{ github.sha }}"
+          echo "$COSIGN_PRIVATE_KEY" > cosign.key
+          cosign sign --key cosign.key "$IMAGE"
+
+      # ---------------------------------------------------
+      # Optional: Verify the signature
+      # ---------------------------------------------------
+      - name: Verify signed image
+        run: |
+          IMAGE="ghcr.io/${{ github.repository_owner }}/ublue-kurpanek:${{ github.sha }}"
+          cosign verify --key cosign.key "$IMAGE"
+
+      # ---------------------------------------------------
+      # Generate ISO using build-container-installer
+      # ---------------------------------------------------
+      - name: Generate ISO
+        uses: JasonN3/build-container-installer@main
+        with:
+          image: ghcr.io/${{ github.repository_owner }}/ublue-kurpanek:${{ github.sha }}
+          output-name: "ublue-${{ github.sha }}.iso"
+
+      # ---------------------------------------------------
+      # Upload ISO artifact (v4 - required)
+      # ---------------------------------------------------
+      - name: Upload ISO artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ublue-iso
+          path: ./*.iso
