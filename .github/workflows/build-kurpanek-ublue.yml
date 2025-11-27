@@ -6,6 +6,8 @@ on:
 #        "00 06 * * *" # build at 06:00 UTC every day
 #        # (20 minutes after last ublue images start building)
 #  push:
+#    branches:
+#      - main
 #    paths-ignore: # don't rebuild if only documentation has changed
 #      - "**.md"
   pull_request:
@@ -17,29 +19,60 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  bluebuild:
-    name: Build UBlue Kurpanek Image
+  build-and-iso:
+    name: Build OCI image + Sign + Generate ISO
     runs-on: ubuntu-latest
+
     permissions:
       contents: read
       packages: write
-      id-token: write
-    strategy:
-      fail-fast: false # stop GH from cancelling all matrix builds if one fails
-      matrix:
-        recipe:
-          # !! Add your recipes here
-          - ublue-silverblue.yml
-    steps:
-      # the build is fully handled by the reusable github action
-      - name: Build Custom Image
-        uses: blue-build/github-action@v1.10
-        with:
-          recipe: ${{ matrix.recipe }}
-          cosign_private_key: ${{ secrets.SIGNING_SECRET }}
-          registry_token: ${{ github.token }}
-          pr_event_number: ${{ github.event.number }}
+      id-token: write        # needed for OIDC (if uses keyless)
 
-          # enabled by default, disable if your image is small and you want faster builds
-          rechunk: true
-          maximize_build_space: true
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      # ---------------------------------------------------
+      # Install BlueBuild
+      # ---------------------------------------------------
+      - name: Set up Rust (for bluebuild CLI)
+        uses: actions/setup-rust@v1
+        with:
+          rust-version: stable
+
+      - name: Install BlueBuild CLI
+        run: cargo install blue-build
+
+      # ---------------------------------------------------
+      # Build & push UBlue local image
+      # ---------------------------------------------------
+      - name: Build OCI image with BlueBuild
+        run: |
+          bluebuild build recipes/recipe.yml --push \
+            --registry ghcr.io/${{ github.repository_owner }} \
+            --tag ${{ github.sha }}
+
+      # ---------------------------------------------------
+      # Install cosign
+      # ---------------------------------------------------
+      - name: Install cosign
+        uses: sigstore/cosign-installer@v3
+
+      # ---------------------------------------------------
+      # Sign the OCI image
+      # ---------------------------------------------------
+      - name: Sign container image with cosign
+        env:
+          COSIGN_PRIVATE_KEY: ${{ secrets.COSIGN_PRIVATE_KEY }}
+          COSIGN_PASSWORD:    ${{ secrets.COSIGN_PASSWORD }}
+        run: |
+          IMAGE="ghcr.io/${{ github.repository_owner }}/ublue-kurpanek:${{ github.sha }}"
+          echo "$COSIGN_PRIVATE_KEY" > cosign.key
+          cosign sign --key cosign.key "$IMAGE"
+
+      # ---------------------------------------------------
+      # OPTIONAL: verify immediately (good for CI logs)
+      # ---------------------------------------------------
+      - name: Verify signed image
+        run: |
+          IMAGE="ghcr.io/${{ github.re
