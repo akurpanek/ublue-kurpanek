@@ -1,3 +1,6 @@
 cosign.key
 cosign.private
 /Containerfile
+/Containerfile
+/Containerfile.*
+/.bluebuild-scripts_*
