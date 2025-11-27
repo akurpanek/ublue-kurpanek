@@ -1,53 +1,23 @@
-name: Build UBlue ISO
+name: Build UBlue ISO (with signing)
 
 on:
-#  schedule:
-#    - cron:
-#        "00 06 * * *" # build at 06:00 UTC every day
-#        # (20 minutes after last ublue images start building)
 #  push:
 #    branches:
 #      - main
-#    paths-ignore: # don't rebuild if only documentation has changed
-#      - "**.md"
-  pull_request:
-  workflow_dispatch: # allow manually triggering builds
-
-concurrency:
-  # only run one build at a time
-  group: ${{ github.workflow }}-${{ github.ref || github.run_id }}
-  cancel-in-progress: true
+  workflow_dispatch:
 
 jobs:
   build-and-iso:
-    name: Build image + Generate ISO
+    name: Build OCI image + Sign + Generate ISO
     runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+      id-token: write      # required for cosign/OIDC if needed
+
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v5
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Set up Rust (for bluebuild CLI, if needed)
-        uses: actions/setup-rust@v1
-        with:
-          rust-version: stable
-
-      - name: Install BlueBuild CLI
-        run: |
-          cargo install blue-build
-
-      - name: Build OCI image with BlueBuild
-        run: |
-          bluebuild build recipes/recipe.yml --push \
-            --registry ghcr.io/${{ github.repository_owner }} \
-            --tag ${{ github.sha }}
-
-      - name: Generate ISO from built image
-        run: |
-          sudo bluebuild generate-iso --iso-name ublue-${{ github.sha }}.iso image \
-            ghcr.io/${{ github.repository_owner }}/${{ github.repository }}:${{ github.sha }}
-
-      - name: Upload ISO as artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: ublue-iso
-          path: ./ublue-${{ github.sha }}.iso
+      # ----
