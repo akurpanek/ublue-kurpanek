@@ -25,7 +25,7 @@ jobs:
             --iso-name kurpanek-silverblue.iso
 
       - name: Upload ISO as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: kurpanek-silverblue.iso
           path: ./iso-output/kurpanek-silverblue.iso
