@@ -1,24 +1,20 @@
 name: Build ISO from UBlue Image
 
 on:
-  workflow_run:
-    workflows: ["build-kurpanek-ublue"]
-    types:
-      - completed
   workflow_dispatch:
     inputs:
       image-name:
-        description: "Name des Bluefin/BlueBuild Images"
-        required: true
+        description: "Name des BlueBuild/Bluefin Images"
         default: "kurpanek-silverblue"
-      image-tag:
-        description: "Tag des Images, aus dem das ISO erzeugt werden soll"
         required: true
+      image-tag:
+        description: "Tag des Images"
         default: "latest"
+        required: true
       iso-name:
-        description: "Name für die erzeugte ISO-Datei"
-        required: false
+        description: "ISO-Dateiname"
         default: "kurpanek-silverblue.iso"
+        required: true
 
 env:
   IMAGE_NAME: ${{ github.event.inputs.image-name }}
@@ -69,5 +65,3 @@ jobs:
           name: ${{ env.ISO_NAME }}
           path: ${{ env.OUTPUT_DIR }}/${{ env.ISO_NAME }}
           retention-days: 14
-
-
