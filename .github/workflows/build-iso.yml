@@ -1,4 +1,4 @@
-name: Build ISO from Bluefin OS Image
+name: Build ISO from UBlue Kurpanek Image
 
 on:
   workflow_run:
@@ -22,7 +22,7 @@ jobs:
           sudo dnf install -y lorax-composer lorax-templates-generic
 
       - name: Download the built image artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: ublue-image
           path: ./artifacts
@@ -55,8 +55,7 @@ jobs:
           mv "$ISO_PATH" ./bluefin.iso
 
       - name: Upload ISO artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: bluefin-iso
           path: ./bluefin.iso
-          
