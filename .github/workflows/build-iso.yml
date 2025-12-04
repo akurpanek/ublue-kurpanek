@@ -23,7 +23,8 @@ env:
   OUTPUT_DIR: iso-output
 
 permissions:
-  contents: write
+  packages: write
+  contents: read
   
 jobs:
   build-iso:
