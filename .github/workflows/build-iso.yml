@@ -10,9 +10,12 @@ on:
 jobs:
   build-iso:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     container:
-      image: ghcr.io/ublue-os/bluefin:latest
-      options: --privileged
+      image: fedora:42
+      options: --privileged    
+    
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
