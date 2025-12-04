@@ -25,41 +25,47 @@ env:
   IMAGE_TAG: ${{ github.event.inputs.image-tag }}
   ISO_NAME: ${{ github.event.inputs.iso-name }}
   OUTPUT_DIR: iso-output
-  ISO_SCRIPT_URL: "https://raw.githubusercontent.com/blue-build/bluebuild/main/scripts/generate-iso.sh"
 
 jobs:
   build-iso:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Install dependencies (Podman + tools)
         run: |
           sudo apt-get update
           sudo apt-get install -y podman curl jq
 
-      - name: Download generate-iso script
+      - name: Install official BlueBuild CLI
         run: |
-          mkdir -p tools
-          curl -L "$ISO_SCRIPT_URL" -o tools/generate-iso.sh
-          chmod +x tools/generate-iso.sh
+          curl -L https://raw.githubusercontent.com/blue-build/bluebuild/main/install.sh | bash
+          echo "$HOME/.bluebuild/bin" >> $GITHUB_PATH
+          export PATH="$HOME/.bluebuild/bin:$PATH"
+          bluebuild --version
 
-      - name: Pull built image
+      - name: Pull published BlueBuild image
         run: |
           podman pull ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
 
-      - name: Create output directory
+      - name: Create ISO output directory
         run: mkdir -p "${OUTPUT_DIR}"
 
-      - name: Generate ISO
+      - name: Generate ISO (BlueBuild official way)
         run: |
-          tools/generate-iso.sh \
-            --image ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} \
-            --output $OUTPUT_DIR/${ISO_NAME}
+          export PATH="$HOME/.bluebuild/bin:$PATH"
+          bluebuild generate-iso \
+            --iso-name "${ISO_NAME}" \
+            image ghcr.io/${{ github.repository_owner }}/${{ IMAGE_NAME }}:${{ IMAGE_TAG }}
 
-      - name: Upload ISO
+          # Move result
+          mv "${ISO_NAME}" "${OUTPUT_DIR}/${ISO_NAME}"
+
+      - name: Upload ISO Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ISO_NAME }}
           path: ${{ env.OUTPUT_DIR }}/${{ env.ISO_NAME }}
+          retention-days: 14
