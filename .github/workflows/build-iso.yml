@@ -10,7 +10,7 @@ on:
       image-name:
         description: "Name des Bluefin/BlueBuild Images"
         required: true
-        default: "bluefin-os"
+        default: "kurpanek-silverblue"
       image-tag:
         description: "Tag des Images, aus dem das ISO erzeugt werden soll"
         required: true
@@ -18,7 +18,7 @@ on:
       iso-name:
         description: "Name für die erzeugte ISO-Datei"
         required: false
-        default: "bluefin-custom.iso"
+        default: "kurpanek-silverblue.iso"
 
 env:
   IMAGE_NAME: ${{ github.event.inputs.image-name }}
