@@ -6,59 +6,64 @@ on:
     types:
       - completed
   workflow_dispatch:
+    inputs:
+      image-name:
+        description: "Name des Bluefin/BlueBuild Images"
+        required: true
+        default: "bluefin-os"
+      image-tag:
+        description: "Tag des Images, aus dem das ISO erzeugt werden soll"
+        required: true
+        default: "latest"
+      iso-name:
+        description: "Name für die erzeugte ISO-Datei"
+        required: false
+        default: "bluefin-custom.iso"
+
+env:
+  IMAGE_NAME: ${{ github.event.inputs.image-name }}
+  IMAGE_TAG: ${{ github.event.inputs.image-tag }}
+  ISO_NAME: ${{ github.event.inputs.iso-name }}
+  OUTPUT_DIR: "iso-output"
 
 jobs:
   build-iso:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    container:
-      image: fedora:42
-      options: --privileged    
-    
+
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Install Required Packages
         run: |
-          sudo dnf install -y composer-cli lorax-templates-generic
+          sudo apt-get update
+          sudo apt-get install -y \
+            podman \
+            jq \
+            git \
+            wget
 
-      - name: Download the built image artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: ublue-image
-          path: ./artifacts
+      - name: Clone blue-build tools (iso.sh)
+        run: |
+          git clone https://github.com/blue-build/bluebuild-tools.git tools
+          chmod +x tools/iso.sh
+
+      - name: Pull image from GitHub Container Registry
+        run: |
+          podman pull ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
+
+      - name: Prepare output directory
+        run: mkdir -p $OUTPUT_DIR
 
       - name: Generate ISO
         run: |
-          # Setze den Pfad zur heruntergeladenen Image-Datei
-          IMAGE_PATH=$(ls ./artifacts/*.raw.xz | head -n 1)
-          if [ -z "$IMAGE_PATH" ]; then
-            echo "Keine Image-Datei gefunden!"
-            exit 1
-          fi
+          tools/iso.sh \
+            --image ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} \
+            --output $OUTPUT_DIR/${{ env.ISO_NAME }}
 
-          # Entpacke die Image-Datei
-          unxz "$IMAGE_PATH"
-          IMAGE_PATH="${IMAGE_PATH%.xz}"
-
-          # Erstelle ein temporäres Verzeichnis für die ISO-Erstellung
-          mkdir -p /tmp/iso
-
-          # Erstelle die ISO mit lorax-composer
-          sudo composer-cli compose start --arg distro "bluefin" --arg image_name "bluefin-iso" --arg image_desc "Bluefin ISO" --arg image_version "1.0" --arg base_image "$IMAGE_PATH" bluefin-iso qcow2
-
-          # Warte, bis die ISO erstellt wurde
-          sudo composer-cli compose status
-
-          # Lade die erstellte ISO herunter
-          sudo composer-cli compose metadata bluefin-iso > compose-metadata.json
-          ISO_PATH=$(jq -r '.image_builds[0].paths[0]' compose-metadata.json)
-          mv "$ISO_PATH" ./bluefin.iso
-
-      - name: Upload ISO artifact
+      - name: Upload ISO Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: bluefin-iso
-          path: ./bluefin.iso
+          name: ${{ env.ISO_NAME }}
+          path: ${{ env.OUTPUT_DIR }}/${{ env.ISO_NAME }}
+          retention-days: 14
