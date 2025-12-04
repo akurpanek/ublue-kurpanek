@@ -30,22 +30,19 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Install dependencies (Podman + tools)
+      - name: Install system dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y podman curl jq
+          sudo apt-get install -y podman curl jq build-essential pkg-config libssl-dev
 
-      - name: Install official BlueBuild CLI
-        run: |
-          curl -L https://raw.githubusercontent.com/blue-build/bluebuild/main/install.sh | bash
-          echo "$HOME/.bluebuild/bin" >> $GITHUB_PATH
+      - name: Install Rust (required for BlueBuild CLI)
+        uses: dtolnay/rust-toolchain@stable
 
-      - name: Export environment variables for shell
+      - name: Install BlueBuild CLI (cargo)
         run: |
-          echo "IMAGE_NAME=${IMAGE_NAME}" >> $GITHUB_ENV
-          echo "IMAGE_TAG=${IMAGE_TAG}" >> $GITHUB_ENV
-          echo "ISO_NAME=${ISO_NAME}" >> $GITHUB_ENV
-          echo "OUTPUT_DIR=${OUTPUT_DIR}" >> $GITHUB_ENV
+          cargo install blue-build
+          echo "$HOME/.cargo/bin" >> $GITHUB_PATH
+          bluebuild --version
 
       - name: Pull published BlueBuild image
         run: |
@@ -56,8 +53,6 @@ jobs:
 
       - name: Generate ISO (BlueBuild official way)
         run: |
-          export PATH="$HOME/.bluebuild/bin:$PATH"
-
           bluebuild generate-iso \
             --iso-name "${ISO_NAME}" \
             image ghcr.io/${{ github.repository_owner }}/${IMAGE_NAME}:${IMAGE_TAG}
