@@ -1,4 +1,4 @@
-name: Build ISO from UBlue Kurpanek Image
+name: Build ISO from UBlue Image
 
 on:
   workflow_run:
