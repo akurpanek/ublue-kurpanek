@@ -22,7 +22,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo dnf install -y lorax-composer lorax-templates-generic
+          sudo dnf install -y composer-cli lorax-templates-generic
 
       - name: Download the built image artifact
         uses: actions/download-artifact@v4
