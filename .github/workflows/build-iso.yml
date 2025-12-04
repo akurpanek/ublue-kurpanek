@@ -1,37 +1,62 @@
-name: Build ISO
+name: Build ISO from Bluefin OS Image
 
 on:
+  workflow_run:
+    workflows: ["build-kurpanek-ublue"]
+    types:
+      - completed
   workflow_dispatch:
 
 jobs:
   build-iso:
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/jasonn3/build-container-installer:latest
+      image: ghcr.io/ublue-os/bluefin:latest
       options: --privileged
     steps:
-    - name: Build ISO
-      uses: jasonn3/build-container-installer@main
-      id: build
-      with:
-        arch: ${{ env.ARCH}}
-        image_name: ${{ env.IMAGE_NAME}}
-        image_repo: ${{ env.IMAGE_REPO}}
-        image_tag: ${{ env.IMAGE_TAG }}
-        version: ${{ env.VERSION }}
-        variant: ${{ env.VARIANT }}
-        iso_name: ${{ env.IMAGE_NAME }}-${{ env.IMAGE_TAG }}-${{ env.VERSION }}.iso
-    
-    # This example is for uploading your ISO as a Github artifact. You can do something similar using any cloud storage, so long as you copy the output
-    - name: Upload ISO as artifact
-      id: upload
-      uses: actions/upload-artifact@v4
-      with:
-        name: ${{ steps.build.outputs.iso_name }}
-        path: |
-          ${{ steps.build.outputs.iso_path }}/${{ steps.build.outputs.iso_name }}
-          ${{ steps.build.outputs.iso_path }}/${{ steps.build.outputs.iso_name }}-CHECKSUM
-        if-no-files-found: error
-        retention-days: 0
-        compression-level: 0
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: |
+          sudo dnf install -y lorax-composer lorax-templates-generic
+
+      - name: Download the built image artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: ublue-image
+          path: ./artifacts
+
+      - name: Generate ISO
+        run: |
+          # Setze den Pfad zur heruntergeladenen Image-Datei
+          IMAGE_PATH=$(ls ./artifacts/*.raw.xz | head -n 1)
+          if [ -z "$IMAGE_PATH" ]; then
+            echo "Keine Image-Datei gefunden!"
+            exit 1
+          fi
+
+          # Entpacke die Image-Datei
+          unxz "$IMAGE_PATH"
+          IMAGE_PATH="${IMAGE_PATH%.xz}"
+
+          # Erstelle ein temporäres Verzeichnis für die ISO-Erstellung
+          mkdir -p /tmp/iso
+
+          # Erstelle die ISO mit lorax-composer
+          sudo composer-cli compose start --arg distro "bluefin" --arg image_name "bluefin-iso" --arg image_desc "Bluefin ISO" --arg image_version "1.0" --arg base_image "$IMAGE_PATH" bluefin-iso qcow2
+
+          # Warte, bis die ISO erstellt wurde
+          sudo composer-cli compose status
+
+          # Lade die erstellte ISO herunter
+          sudo composer-cli compose metadata bluefin-iso > compose-metadata.json
+          ISO_PATH=$(jq -r '.image_builds[0].paths[0]' compose-metadata.json)
+          mv "$ISO_PATH" ./bluefin.iso
+
+      - name: Upload ISO artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: bluefin-iso
+          path: ./bluefin.iso
+          
