@@ -1,4 +1,4 @@
-name: Build UBlue Image
+name: Build Kurpanek Silverblue Image
 
 on:
   schedule:
@@ -16,7 +16,7 @@ concurrency:
   
 jobs:
   bluebuild:
-    name: Build UBlue Kurpanek Image
+    name: Build UBlue Kurpanek Silverblue Image
     runs-on: ubuntu-latest
     permissions:
       contents: read
