@@ -31,32 +31,33 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install requirements
+      - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt-get install -y podman
+          sudo apt-get install -y podman git jq curl
 
-      - name: Pull your BlueBuild/bluefin image
+      - name: Clone BlueBuild repo (public)
+        run: |
+          git clone https://github.com/blue-build/bluebuild.git tools
+          chmod +x tools/scripts/generate-iso.sh
+
+      - name: Pull built image
         run: |
           podman pull ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }}
 
       - name: Create output directory
         run: mkdir -p "${OUTPUT_DIR}"
 
-      - name: Run the BlueBuild ISO generator container
+      - name: Generate ISO
         run: |
-          podman run --rm \
-            -v ${{ github.workspace }}/${OUTPUT_DIR}:/output \
-            ghcr.io/blue-build/installer:latest \
+          tools/scripts/generate-iso.sh \
             --image ghcr.io/${{ github.repository_owner }}/${{ env.IMAGE_NAME }}:${{ env.IMAGE_TAG }} \
-            --output /output/${{ env.ISO_NAME }}
+            --output $OUTPUT_DIR/${ISO_NAME}
 
-      - name: Upload ISO Artifact
+      - name: Upload ISO
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ISO_NAME }}
           path: ${{ env.OUTPUT_DIR }}/${{ env.ISO_NAME }}
-          retention-days: 14
