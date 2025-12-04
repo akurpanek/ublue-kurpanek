@@ -21,10 +21,13 @@ env:
   IMAGE_TAG: ${{ inputs.image-tag }}
   ISO_NAME: ${{ inputs.iso-name }}
   OUTPUT_DIR: iso-output
-
+  
 jobs:
   build-iso:
     runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@v4
