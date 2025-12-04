@@ -27,40 +27,46 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Install system dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y podman curl jq build-essential pkg-config libssl-dev
 
-      - name: Install Rust (required for BlueBuild CLI)
+      - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
 
-      - name: Install BlueBuild CLI (cargo)
+      - name: Install BlueBuild CLI
         run: |
           cargo install blue-build
           echo "$HOME/.cargo/bin" >> $GITHUB_PATH
-          bluebuild --version
 
-      - name: Pull published BlueBuild image
+      - name: Pull published image
         run: |
           podman pull ghcr.io/${{ github.repository_owner }}/${IMAGE_NAME}:${IMAGE_TAG}
 
-      - name: Create ISO output directory
+      - name: Create output dir
         run: mkdir -p "${OUTPUT_DIR}"
 
-      - name: Generate ISO (BlueBuild official way)
+      - name: Generate ISO
         run: |
           bluebuild generate-iso \
             --iso-name "${ISO_NAME}" \
             image ghcr.io/${{ github.repository_owner }}/${IMAGE_NAME}:${IMAGE_TAG}
-
           mv "${ISO_NAME}" "${OUTPUT_DIR}/${ISO_NAME}"
 
-      - name: Upload ISO Artifact
+      - name: Upload ISO as CI Artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.ISO_NAME }}
           path: ${{ env.OUTPUT_DIR }}/${{ env.ISO_NAME }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: "iso-${{ env.IMAGE_TAG }}"
+          name: "ISO Release (${{ env.IMAGE_TAG }})"
+          files: ${{ env.OUTPUT_DIR }}/${{ env.ISO_NAME }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
