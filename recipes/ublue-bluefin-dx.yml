@@ -19,4 +19,5 @@ modules:
   - from-file: common_modules/default-flatpaks.yml
   - from-file: common_modules/fonts.yml
   - from-file: common_modules/gschema-overrides.yml
+  # - from-file: common_modules/initramfs.yml
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
