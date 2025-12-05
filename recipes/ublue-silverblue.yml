@@ -15,15 +15,5 @@ image-version: 42 # latest is also supported if you want new updates ASAP
 modules:
   - from-file: common_modules/files.yml
   - from-file: common_modules/dnf.yml
-  
-  - type: default-flatpaks
-    configurations:
-      - notify: true # Send notification after install/uninstall is finished (true/false)
-        scope: system
-        # If no repo information is specified, Flathub will be used by default
-        install: # system flatpaks we want all users to have and not remove
-          - org.mozilla.firefox
-          - org.gnome.Loupe
-      - scope: user # Also add Flathub user repo, but no user packages
-
+  - from-file: common_modules/default-flatpaks.yml
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
