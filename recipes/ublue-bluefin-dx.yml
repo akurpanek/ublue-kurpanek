@@ -16,5 +16,4 @@ modules:
   - from-file: common_modules/files.yml
   - from-file: common_modules/dnf.yml
   - from-file: common_modules/default-flatpaks.yml
-  
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
