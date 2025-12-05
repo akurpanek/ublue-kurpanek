@@ -1,4 +1,4 @@
-name: Build Kurpanek Silverblue Image
+name: Build Ublue Image
 
 on:
   schedule:
