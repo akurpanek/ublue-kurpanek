@@ -2,7 +2,7 @@ name: Build Kurpanek Bluefin DX Image
 
 on:
   schedule:
-    - cron: "30 20 * * 0"
+    - cron: "50 20 * * 0"
 #  push:
 #    paths-ignore: # don't rebuild if only documentation has changed
 #      - "**.md"
