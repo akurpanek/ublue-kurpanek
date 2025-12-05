@@ -1,4 +1,4 @@
-name: Build Ublue Image
+name: Build UBlue Image
 
 on:
   schedule:
