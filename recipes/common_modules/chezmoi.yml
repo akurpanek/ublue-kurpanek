@@ -1,0 +1,6 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+type: chezmoi
+repository: "https://github.com/akurpanek/chezmoi-dotfiles"
+all-users: false
+file-conflict-policy: replace
