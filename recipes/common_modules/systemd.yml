@@ -1,0 +1,12 @@
+---
+# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
+type: systemd
+user:
+  enabled:
+    - podman.socket
+    - update-user-flatpaks.timer
+system:
+  enabled:
+    - update-system-flatpaks.timer
+    - ublue-update.timer
+    - uupd.service
