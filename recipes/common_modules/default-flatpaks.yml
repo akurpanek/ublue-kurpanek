@@ -13,6 +13,7 @@ configurations:
       - org.cryptomator.Cryptomator
       - org.gimp.GIMP
       - org.gnome.Loupe
+      - org.gnome.seahorse.Application
       - org.inkscape.Inkscape
       - org.libreoffice.LibreOffice
       - org.mozilla.firefox
