@@ -2,7 +2,7 @@ name: Build Kurpa UBlue Image
 
 on:
   schedule:
-    - cron: "30 20 * * 0"
+    - cron: "00 06 * * *" # build at 06:00 UTC every day
 #  push:
 #    paths-ignore: # don't rebuild if only documentation has changed
 #      - "**.md"
