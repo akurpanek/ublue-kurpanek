@@ -9,6 +9,7 @@ configurations:
       - com.calibre_ebook.calibre
       - im.riot.Riot
       - io.typora.Typora
+      - net.code_industry.MasterPDFEditor
       - org.cryptomator.Cryptomator
       - org.gimp.GIMP
       - org.gnome.Loupe
