@@ -6,14 +6,22 @@ configurations:
     scope: system
     # If no repo information is specified, Flathub will be used by default
     install: # system flatpaks we want all users to have and not remove
+      - be.alexandervanhee.gradia
       - com.calibre_ebook.calibre
+      # - com.bitwarden.desktop      
+      # - io.github.martchus.syncthingtray
+      - com.github.tchx84.Flatseal
+      - com.jgraph.drawio.desktop
       - im.riot.Riot
+      - io.github.kolunmi.Bazaar
       - io.typora.Typora
       - net.code_industry.MasterPDFEditor
       - org.cryptomator.Cryptomator
       - org.gimp.GIMP
       - org.gnome.Loupe
+      - org.gnome.meld
       - org.gnome.seahorse.Application
+      - org.gustavoperedo.FontDownloader
       - org.inkscape.Inkscape
       - org.libreoffice.LibreOffice
       - org.mozilla.firefox
