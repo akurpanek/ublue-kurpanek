@@ -1,13 +1,6 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
 type: default-flatpaks
-repos:
-  - name: flathub
-    url: https://flathub.org/repo/flathub.flatpakrepo
-  - name: 1password
-    url: https://downloads.1password.com/linux/flatpak
-    priority: 20
-
 configurations:
   - scope: user # Also add Flathub user repo, but no user packages
     repo:
