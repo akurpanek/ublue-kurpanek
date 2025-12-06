@@ -6,7 +6,7 @@
 set -oue pipefail
 
 # Your code goes here.
-echo 'Add remote repositories to flatpak configuration'
+echo 'Add onepassword remote repository to flatpak configuration'
 
 # Download the GPG keys using curl
 curl -sL "https://downloads.1password.com/linux/flatpak/repo/onepassword.asc" | \
