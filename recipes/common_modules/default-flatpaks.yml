@@ -6,6 +6,13 @@ configurations:
     scope: system
     # If no repo information is specified, Flathub will be used by default
     install: # system flatpaks we want all users to have and not remove
-      - org.mozilla.firefox
       - org.gnome.Loupe
+      - com.calibre_ebook.calibre
+      - im.riot.Riot
+      - org.cryptomator.Cryptomator
+      - org.gimp.GIMP
+      - org.inkscape.Inkscape
+      - org.libreoffice.LibreOffice
+      - org.mozilla.firefox
+      - org.torproject.torbrowser-launcher
   - scope: user # Also add Flathub user repo, but no user packages
