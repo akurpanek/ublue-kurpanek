@@ -1,14 +1,22 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
 type: default-flatpaks
+repos:
+  - name: flathub
+    url: https://flathub.org/repo/flathub.flatpakrepo
+  - name: 1password
+    url: https://downloads.1password.com/linux/flatpak
+    priority: 20
+
 configurations:
   - notify: true # Send notification after install/uninstall is finished (true/false)
     scope: system
     # If no repo information is specified, Flathub will be used by default
     install: # system flatpaks we want all users to have and not remove
       - be.alexandervanhee.gradia
+      - com.1password.OnePassword
       - com.calibre_ebook.calibre
-      # - com.bitwarden.desktop      
+      - com.bitwarden.desktop
       # - io.github.martchus.syncthingtray
       - com.github.tchx84.Flatseal
       - com.jgraph.drawio.desktop
