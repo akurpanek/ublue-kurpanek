@@ -2,18 +2,13 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
 type: default-flatpaks
 configurations:
-  - scope: user # Also add Flathub user repo, but no user packages
-    repo:
-      title: Flathub (user)
   - notify: true # Send notification after install/uninstall is finished (true/false)
     scope: system
-    repo:
-      title: Flathub (system)
     # If no repo information is specified, Flathub will be used by default
     install: # system flatpaks we want all users to have and not remove
       - be.alexandervanhee.gradia
       - com.calibre_ebook.calibre
-      - com.bitwarden.desktop
+      - com.bitwarden.desktop      
       # - io.github.martchus.syncthingtray
       - com.github.tchx84.Flatseal
       - com.jgraph.drawio.desktop
@@ -32,9 +27,5 @@ configurations:
       - org.libreoffice.LibreOffice
       - org.mozilla.firefox
       - org.torproject.torbrowser-launcher
-  - notify: true # Send notification after install/uninstall is finished (true/false)
-    scope: system
-    repo:
-      title: onepassword-origin
-    install: # system flatpaks we want all users to have and not remove
-      - com.1password.OnePassword
+  - scope: user # Also add Flathub user repo, but no user packages
+  
