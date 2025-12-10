@@ -17,10 +17,10 @@ url=$(curl -s "https://api.github.com/repos/VorpalBlade/chezmoi_modify_manager/r
 curl --location --output $dir/chezmoi_modify_manager.tar.gz "$url"
 
 # Extract the downloaded archive
-tar -xzf $dir/chezmoi_modify_manager.tar.gz -C $dir/chezmoi_modify_manager
+tar -xzf $dir/chezmoi_modify_manager.tar.gz -C $dir
 
 # Move the binary to the system-wide binaries directory
-mv $dir/chezmoi_modify_manager/chezmoi_modify_manager /usr/local/bin/
+mv $dir/chezmoi_modify_manager /usr/local/bin/
 
 # Make the binary executable
 chmod +x /usr/local/bin/chezmoi_modify_manager
