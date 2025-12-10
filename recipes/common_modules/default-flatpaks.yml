@@ -12,6 +12,7 @@ configurations:
       # - io.github.martchus.syncthingtray
       - com.github.tchx84.Flatseal
       - com.jgraph.drawio.desktop
+      - com.nextcloud.desktopclient.nextcloud
       - com.nitrokey.nitrokey-app2
       - com.spotify.Client
       - de.bund.ausweisapp.ausweisapp2
