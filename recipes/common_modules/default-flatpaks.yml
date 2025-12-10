@@ -14,6 +14,7 @@ configurations:
       - com.jgraph.drawio.desktop
       - com.nitrokey.nitrokey-app2
       - com.spotify.Client
+      - de.bund.ausweisapp.ausweisapp2
       - im.riot.Riot
       - io.github.kolunmi.Bazaar
       - io.typora.Typora
