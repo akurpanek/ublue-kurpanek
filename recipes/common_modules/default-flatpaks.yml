@@ -13,6 +13,7 @@ configurations:
       - com.github.tchx84.Flatseal
       - com.jgraph.drawio.desktop
       - com.nitrokey.nitrokey-app2
+      - com.spotify.Client
       - im.riot.Riot
       - io.github.kolunmi.Bazaar
       - io.typora.Typora
