@@ -11,6 +11,7 @@ configurations:
       - com.bitwarden.desktop      
       # - io.github.martchus.syncthingtray
       - com.github.tchx84.Flatseal
+      - com.hamrick.VueScan
       - com.jgraph.drawio.desktop
       - com.nextcloud.desktopclient.nextcloud
       - com.nitrokey.nitrokey-app2
