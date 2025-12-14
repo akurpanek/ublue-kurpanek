@@ -32,4 +32,3 @@ configurations:
       - org.mozilla.firefox
       - org.torproject.torbrowser-launcher
   - scope: user # Also add Flathub user repo, but no user packages
-  
