@@ -1,5 +1,0 @@
----
-# yaml-language-server: $schema=https://schema.blue-build.org/recipe-v1.json
-type: script
-scripts:
-  - install-chezmoi-modify-manager.sh
