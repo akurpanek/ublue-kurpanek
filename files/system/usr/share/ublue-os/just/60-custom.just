@@ -2,5 +2,5 @@
 # This file can be modified downstream to add custom just commands
 
 # export bw variables
-bw:
-    export BW_SESSION=$(bw unlock --raw)
+#bw:
+#    export BW_SESSION=$(bw unlock --raw)
