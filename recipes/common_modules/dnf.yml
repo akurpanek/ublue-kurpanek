@@ -6,7 +6,6 @@ repos:
     - atim/starship
 install:
   packages:
-    - btrfs-assistant
     - micro
     - starship
     - snapper
