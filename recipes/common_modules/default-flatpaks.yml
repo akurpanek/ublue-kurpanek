@@ -27,6 +27,7 @@ configurations:
       - org.gnome.Loupe
       - org.gnome.meld
       - org.gnome.seahorse.Application
+      - org.gnome.Snapshot
       - org.gnome.World.PikaBackup
       - org.gustavoperedo.FontDownloader
       - org.inkscape.Inkscape
