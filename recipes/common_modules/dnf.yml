@@ -8,6 +8,7 @@ install:
   packages:
     - micro
     - starship
+    - snapper
 remove:
   packages:
     # example: removing firefox (in favor of the flatpak)
