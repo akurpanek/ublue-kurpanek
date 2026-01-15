@@ -1,0 +1,20 @@
+type: gnome-extensions
+install:
+  - AppIndicator and KStatusNotifierItem Support
+  - Apps Menu
+  - Blur my Shell
+  - Caffeine
+  - Control monitor brightness and volume with ddcutil
+  - Dash to Dock
+  # GSConnect installed by dnf-gnome.yml
+  - Hide Top Bar
+  - Launch New Instance
+  - Logo Menu
+  - Just Perfection
+  - Places Status Indicator
+  # Search Light installed by dnf-gnome.yml
+  - Tiling Shell
+  - Tailscale QS
+  - User Themes
+  - Window List
+uninstall: []
