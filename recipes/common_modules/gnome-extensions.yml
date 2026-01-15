@@ -16,5 +16,5 @@ install:
   - Tiling Shell
   - Tailscale QS
   - User Themes
-  - Window List
+  - 602 # Window List
 uninstall: []
