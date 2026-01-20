@@ -14,7 +14,6 @@ install:
   - Launch New Instance # https://extensions.gnome.org/extension/600/
   - Logo Menu # https://extensions.gnome.org/extension/4451/
   - Just Perfection # https://extensions.gnome.org/extension/3843/
-  - Panel OSD # https://extensions.gnome.org/extension/708/
   - Places Status Indicator # https://extensions.gnome.org/extension/8/
   # Search Light (5489) installed by dnf-gnome.yml
   - Tiling Shell # https://extensions.gnome.org/extension/7065/
