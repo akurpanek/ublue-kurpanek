@@ -10,7 +10,7 @@ configurations:
       - com.calibre_ebook.calibre
       - com.bitwarden.desktop      
       # - io.github.martchus.syncthingtray
-      - com.brave.Browser
+      # - com.brave.Browser
       - com.github.tchx84.Flatseal
       - com.hamrick.VueScan
       - com.jgraph.drawio.desktop
