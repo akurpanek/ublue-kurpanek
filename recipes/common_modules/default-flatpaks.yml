@@ -24,6 +24,7 @@ configurations:
       - net.code_industry.MasterPDFEditor
       - org.cryptomator.Cryptomator
       - org.gimp.GIMP
+      - org.gnome.Evolution
       - org.gnome.Loupe
       - org.gnome.meld
       - org.gnome.seahorse.Application
