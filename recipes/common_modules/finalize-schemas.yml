@@ -1,0 +1,6 @@
+type: script
+scripts:
+  - |
+    set -euxo pipefail
+    echo "Rebuilding GLib schemas"
+    glib-compile-schemas --strict /usr/share/glib-2.0/schemas
