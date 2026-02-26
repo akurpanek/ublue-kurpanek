@@ -16,6 +16,7 @@ install:
   - Just Perfection # https://extensions.gnome.org/extension/3843/
   - Places Status Indicator # https://extensions.gnome.org/extension/8/
   # Search Light (5489) installed by dnf-gnome.yml
+  # - Tailscale QS # https://extensions.gnome.org/extension/6139/
   - Tiling Shell # https://extensions.gnome.org/extension/7065/
   - User Themes # https://extensions.gnome.org/extension/19/
   - 602 # Window List # https://extensions.gnome.org/extension/602/
