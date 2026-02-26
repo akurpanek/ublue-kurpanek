@@ -27,5 +27,5 @@ modules:
   # - from-file: common_modules/initramfs.yml
   # - from-file: common_modules/script.yml
   # - from-file: common_modules/systemd.yml
-  # - from-file: common_modules/finalize-schemas.yml
+  - from-file: common_modules/finalize-schemas.yml
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
