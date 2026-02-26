@@ -17,7 +17,6 @@ install:
   - Places Status Indicator # https://extensions.gnome.org/extension/8/
   # Search Light (5489) installed by dnf-gnome.yml
   - Tiling Shell # https://extensions.gnome.org/extension/7065/
-  - Tailscale QS # https://extensions.gnome.org/extension/6139/
   - User Themes # https://extensions.gnome.org/extension/19/
   - 602 # Window List # https://extensions.gnome.org/extension/602/
 uninstall: []
