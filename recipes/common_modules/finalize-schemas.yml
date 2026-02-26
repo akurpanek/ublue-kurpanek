@@ -1,7 +1,9 @@
 ---
 # yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
 type: script
+description: "Finalize GLib schemas after all files and extensions are in place"
 inline: |
     set -euxo pipefail
-    echo "Rebuilding GLib schemas"
+    echo "================ Rebuilding GLib Schemas ================"
     glib-compile-schemas --strict /usr/share/glib-2.0/schemas
+    echo "================ GLib Schemas finalized ================="
