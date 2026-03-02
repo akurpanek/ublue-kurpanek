@@ -2,4 +2,6 @@
 # yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
 type: script
 snippets:
+  - "glib-compile-schemas --strict /usr/share/gnome-shell/extensions/appindicatorsupport@rgcjonas.gmail.com/schemas"
+  - "glib-compile-schemas --strict /usr/share/gnome-shell/extensions/caffeine@patapon.info/schemas"
   - "glib-compile-schemas /usr/share/glib-2.0/schemas" # Rebuilding GLib Schemas
