@@ -1,9 +1,9 @@
 type: gnome-extensions
 install:
-  - AppIndicator and KStatusNotifierItem Support # https://extensions.gnome.org/extension/615/
+  # AppIndicator and KStatusNotifierItem Support installed by dnf-gnome.yml
   - Apps Menu # https://extensions.gnome.org/extension/6/
   - Blur my Shell # https://extensions.gnome.org/extension/3193/
-  - Caffeine # https://extensions.gnome.org/extension/517/
+  # Caffeine installed by dnf-gnome.yml
   - Control monitor brightness and volume with ddcutil # https://extensions.gnome.org/extension/6325/
   - Dash to Dock # https://extensions.gnome.org/extension/307/
   - Dash to Panel # https://extensions.gnome.org/extension/1160/
