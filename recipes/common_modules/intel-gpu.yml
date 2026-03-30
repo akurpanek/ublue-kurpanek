@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=https://schema.blue-build.org/module-v1.json
+name: intel-gpu
+description: Install Intel GPU drivers and tools for ARC support
+install-if: "test -d /sys/class/drm/card*/device/vendor && grep -q 'Intel' /sys/class/drm/card*/device/vendor"
+install:
+  - type: dnf
+    packages:
+      - intel-opencl
+      - intel-level-zero-gpu
+      - level-zero
+      - level-zero-devel
+      - intel-media-driver
+      - intel-gpu-tools
+      - clinfo
+      - ocl-icd
+      - vulkan-intel
+      - libva-intel-driver
+      - libva-utils
+      - mesa-vulkan-drivers
+      - mesa-dri-drivers
+      - libdrm
+      - libdrm-devel
+      - libva
+      - libva-devel
+      - libva-vdpau-driver
+      - libva-intel-hybrid-driver
+      - libva-intel-driver
+      - libva-intel-hybrid-driver
+      - libva-utils
+      - libva-vdpau-driver
+      - libva-intel-driver
+      - libva-intel-hybrid-driver
+      - libva-intel-media-driver
+      - libva-intel-hybrid-codec-driver
+      - intel-compute-runtime
+      - intel-gmmlib
+      - intel-graphics-compiler
+      - intel-igc-cm
+      - intel-igc-opencl
+      - intel-opencl
+      - intel-ocloc
+      - intel-level-zero-gpu
+      - intel-level-zero-devel
+      - intel-media
+      - intel-media-sdk
+      - intel-media-driver
+      - intel-media-driver-non-free
+      - intel-media-driver-non-free-firmware
+      - intel-media-driver-non-free-libs
+      - intel-media-driver-non-free-devel
+      - intel-media-driver-non-free-utils
+      - intel-media-driver-non-free-debuginfo
+      - intel-media-driver-non-free-debugsource
+      - intel-media-driver-non-free-devel-debuginfo
+      - intel-media-driver-non-free-devel-debugsource
+      - intel-media-driver-non-free-libs-debuginfo
+      - intel-media-driver-non-free-libs-debugsource
+      - intel-media-driver-non-free-utils-debuginfo
+      - intel-media-driver-non-free-utils-debugsource
