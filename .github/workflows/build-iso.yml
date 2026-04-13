@@ -67,7 +67,7 @@ jobs:
 #          path: ${{ env.OUTPUT_DIR }}/${{ env.ISO_NAME }}
 #
 #      - name: Create GitHub Release
-#        uses: softprops/action-gh-release@v2
+#        uses: softprops/action-gh-release@v3
 #        with:
 #          tag_name: "iso-${{ env.IMAGE_TAG }}"
 #          name: "ISO Release (${{ env.IMAGE_TAG }})"
@@ -107,7 +107,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Create GitHub Release (linking GHCR)
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           tag_name: "iso-${IMAGE_TAG}"
           name: "ISO Release (${IMAGE_TAG})"
